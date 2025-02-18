@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+</head>
+<body>
+    <h1>Welcome, {{ username }}!</h1>
+    <h2>Your Progress:</h2>
+    <p>Chapters Completed: {{ user['chapters_completed'] }}</p>
+    <p>Rewards: {{ user['rewards'] }}</p>
+
+    <h3>Add a Subject and Chapter:</h3>
+    <form action="/dashboard/{{ username }}" method="post">
+        <label for="subject_name">Subject:</label>
+        <input type="text" id="subject_name" name="subject_name" required>
+        
+        <label for="chapter_name">Chapter:</label>
+        <input type="text" id="chapter_name" name="chapter_name" required>
+        
+        <label for="time_limit">Time Limit (in seconds):</label>
+        <input type="number" id="time_limit" name="time_limit" required>
+        
+        <button type="submit">Add Chapter</button>
+    </form>
+
+    <h3>Your Subjects and Chapters:</h3>
+    <ul>
+        {% for subject in subjects %}
+            <li>{{ subject.subject_name }} - {{ subject.chapter_name }} ({{ subject.time_limit }} seconds)</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
