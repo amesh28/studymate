@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StudyMate - Your Personal Study Game</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <header>
+        <h1>Welcome to StudyMate!</h1>
+        <p>Your personalized study game to help you stay motivated and on track.</p>
+    </header>
+    
+    <section>
+        <h2>Login</h2>
+        <form method="POST" action="/login">
+            <label for="username">Username:</label>
+            <input type="text" id="username" name="username" required>
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" required>
+            <button type="submit">Login</button>
+        </form>
+    </section>
+    
+    <section>
+        <h2>Start Studying</h2>
+        <p>Choose a chapter to begin your study adventure:</p>
+        <ul>
+            <li><a href="/chapter/1">Chapter 1: Introduction to Geography</a></li>
+            <li><a href="/chapter/2">Chapter 2: Climate Zones</a></li>
+            <!-- Add more chapters here -->
+        </ul>
+    </section>
+    
+    <footer>
+        <p>&copy; 2025 StudyMate. All rights reserved.</p>
+    </footer>
+</body>
+</html>
